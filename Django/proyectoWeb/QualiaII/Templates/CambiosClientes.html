@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Cambios Clientes{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script type="text/javascript">
+window.onload = function () {
+    document.formita.nombre.focus();
+    document.formita.addEventListener('submit', validar);
+}
+
+function validar(evObject) {
+    evObject.preventDefault();
+    var bien = true;
+    var telok = false;
+    var formulario = document.formita;
+    for (var i=0; i<formulario.length; i++) {
+            if(formulario[i].type =='text') {
+                   if (formulario[i].value == null || formulario[i].value.length == 0 || /^\s*$/.test(formulario[i].value)){
+                       alert (formulario[i].name+ ' no puede estar vacío o contener sólo espacios en blanco');
+                       bien=false;
+                   }
+            }
+    }
+
+
+
+    if(formulario.telefono.value>=1000000000 && formulario.telefono.value<=9999999999){
+        telok = true;
+    }else{
+        alert('El telefono debe ser un numero de 10 digitos con primer numero diferente de 0');
+    }
+
+    if (bien == true && telok == true)
+        {formulario.submit();}
+}
+</script>
+
+
+    <h1>Modificaciones de Cliente</h1>
+    <form method="post" name="formita" class="form-group" action="/cambioClientes/"> <!--A donde ira al accionar el boton-->
+            {% csrf_token %}
+            {{forma.as_p}}                             <!--La forma que recibe de la vista-->
+            <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+    </form>
+{% endblock %}

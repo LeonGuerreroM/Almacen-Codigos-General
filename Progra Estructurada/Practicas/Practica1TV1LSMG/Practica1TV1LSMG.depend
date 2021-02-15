@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503706918 source:e:\practica1tv1lsmg\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

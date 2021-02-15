@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1507341123 source:c:\users\leonm\desktop\mcd\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funci.h"
+
+1507339479 c:\users\leonm\desktop\mcd\funci.h
+

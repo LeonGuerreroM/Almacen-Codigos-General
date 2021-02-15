@@ -1,0 +1,2 @@
+Marca de clase:   14.0 16.0 18.0 20.0 22.0
+Frecuencias:     4 9 3 3 1

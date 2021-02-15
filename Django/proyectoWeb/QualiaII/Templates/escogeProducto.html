@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Seleccionar Producto{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h12>Selecciona el producto cuyas ventas deseas visualizar</h12>
+    <form method="post" class="form-group" action="/escogerProducto/"> <!--A donde ira al accionar el boton-->
+            {% csrf_token %}
+            {{forma.as_p}}                             <!--La forma que recibe de la vista-->
+            <button type="submit" class="btn btn-dark">Consultar</button>
+    </form>
+{% endblock %}

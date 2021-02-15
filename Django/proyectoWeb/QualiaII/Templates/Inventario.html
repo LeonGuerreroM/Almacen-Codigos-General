@@ -1,0 +1,42 @@
+{% extends "Base.html" %}
+
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+    <h1>Inventario</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+
+                    <td scope="col"><h4><strong>Nombre</strong></h4></td>
+                    <td scope="col"><h4><strong>Marca</strong></h4></td>
+                    <td scope="col"><h4><strong>Tamaño</strong></h4></td>
+                    <td scope="col"><h4><strong>Existencias</strong></h4></td>
+                    <td scope="col"><h4><strong>Existencias Deseadas</strong></h4></td>
+                    <td scope="col"><h4><strong>Costo</strong></h4></td>
+                    <td scope="col"><h4><strong>Precio al p&uacuteblico</strong></h4></td>
+                    <td scope="col"><h4><strong></strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+
+                    <td><h4>{{condicion.nombre}}</h4></td>
+                    <td><h4>{{condicion.marca}}</h4></td>
+                    <td><h4>{{condicion.tamanio}}</h4></td>
+                    <td><h4>{{condicion.cantidad}}</h4></td>
+                    <td><h4>{{condicion.existenciasMinimas}}</h4></td>
+                    <td><h4>$ {{condicion.costo}}</h4></td>
+                    <td><h4>$ {{condicion.precio}}</h4></td>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

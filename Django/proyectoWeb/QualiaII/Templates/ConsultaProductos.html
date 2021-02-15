@@ -1,0 +1,38 @@
+{% extends "Base.html" %}
+
+{% block title %}Consulta Productos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Productos</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+                    <td scope="col"><h4><strong>Nombre</strong></h4></td>
+                    <td scope="col"><h4><strong>Tipo</strong></h4></td>
+                    <td scope="col"><h4><strong>Marca</strong></h4></td>
+                    <td scope="col"><h4><strong>Clase</strong></h4></td>
+                    <td scope="col"><h4><strong>Subclase</strong></h4></td>
+                    <td scope="col"><h4><strong>Tamaño</strong></h4></td>
+                    <td scope="col"><h4><strong></strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+                    <td><h4>{{condicion.nombre}}</h4></td>
+                    <td><h4>{{condicion.tipo}}</h4></td>
+                    <td><h4>{{condicion.marca}}</h4></td>
+                    <td><h4>{{condicion.clase}}</h4></td>
+                    <td><h4>{{condicion.subclase}}</h4></td>
+                    <td><h4>{{condicion.tamanio}}</h4></td>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

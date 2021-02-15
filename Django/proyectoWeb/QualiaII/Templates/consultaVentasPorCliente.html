@@ -1,0 +1,36 @@
+{% extends "Base.html" %}
+
+{% block title %}Ventas por Cliente{% endblock %}
+
+{% block content %}
+    <h1>Lista de Ventas por Cliente</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+
+                    <td scope="col"><h4><strong>Producto</strong></h4></td>
+                    <td scope="col"><h4><strong>Cantidad</strong></h4></td>
+                    <td scope="col"><h4><strong>Fecha</strong></h4></td>
+                    <td scope="col"><h4><strong>Cliente</strong></h4></td>
+                    <td scope="col"><h4><strong></strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+
+                    <td><h4>{{condicion.producto}}</h4></td>
+                    <td><h4>{{condicion.cantidad}}</h4></td>
+                    <td><h4>{{condicion.fecha}}</h4>
+                    <td><h4>{{condicion.cliente}}</h4>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

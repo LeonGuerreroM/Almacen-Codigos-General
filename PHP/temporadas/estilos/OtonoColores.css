@@ -1,0 +1,16 @@
+#encabezado{
+	background-color:orange;
+}
+
+#menuPrincipal{
+	background-color:#FAAC58
+}
+
+
+
+body{
+	background-image: url('../img/otono.jpg'); /*los puntos son para moverte niveles de directorio, aqui use dos porque se debe salir de si y luego de estilos*/
+	background-repeat: no-repeat;
+	background-size: 100%; /*para que sea en toda la pantalla*/
+	
+}

@@ -1,0 +1,155 @@
+#contPrincipal{
+	border: #daacff solid 1px;
+	width: 900px; 
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+#encabezado{
+	position:relative;
+	top:0px;
+	height: 80px;
+	width: 100%;
+	border-bottom: #daacff solid 2px;
+}
+
+#logoEmpresa{
+	position:relative;
+	width: 600px;
+	height: 100%;
+	top:0px;
+	left: 0px;
+}
+
+#redesSociales{
+	position:absolute;
+	width: 300px;
+	height: 100%;
+	top:0px;
+	right: 0px;
+}
+
+#menuPrincipal, #GestionaProductos{
+	position:relative;
+	width:100%;
+	top:0px;
+	height:70px;
+	border-bottom: #00BFFF solid 2px;
+	margin: 0px;
+	padding-top:20px;
+}
+
+#menuPrincipal ul li,#GestionaProductos ul li { /*si en el menuprincipal hay un ul y dentro de ese un li*/
+	display: inline;
+	color: #FFF;
+	letter-spacing: 0.3em;
+	list-style-type:circle;
+	margin-left:2px;
+	margin-left:2px;
+	margin-top:30px;
+	font-size:18px;
+}
+
+p, ul, li{
+	margin:0px;
+}
+
+#galeria{
+	width:100%;
+	height:350px;
+	background-color: orange;
+	position: relative;
+	top:0px;
+	border-bottom: #daacff solid 2px;
+}
+
+#galeria img{
+	width: 100%;
+	height: 100%;
+}
+
+#categorias{
+	position: relative;
+	top:0px;
+	width:100%;
+	background-color: #FFFFFF;
+	height: 300px;
+	border-bottom: #daacff solid 2px;
+}
+
+#categorias .categ{ /*selector del div que tiene decendentes de la clase (puntito .)*/
+	width:200px;
+	height:150px;
+	position: absolute;
+	top: 75px;
+	background-color: #2EFEF7;
+}
+
+#categorias #opcion1{
+	left: 20px;
+}
+
+#categorias #opcion2{
+	left: 240px;
+}
+
+#categorias #opcion3{
+	left: 460px;
+}
+
+#categorias #opcion4{
+	right: 20px;
+	
+}
+
+#categorias img{
+	width: 100%;
+	height: 100%;
+}
+
+#Promociones{
+	position:relative;
+	top:0px;
+	width:100%;
+	background-color: #FFFFFF;
+	height:300px;
+	border-bottom: #ffffff solid 20px;	
+}
+
+#Promociones .categoriaPromociones{
+	/*margin-left: 20px;*/
+	width:168px;
+	height:150px;
+	position: absolute; /*es la aitoridad para que pueda hacer que la imagen se ajuste*/
+	top: 75px;
+	background-color: #2EFEF7;
+}
+
+
+#Promociones img{
+	width:100%;
+	height:100%;
+}
+
+#Promociones #ProductoMasVendido{
+	left: 10px;
+}
+
+#Promociones #ProductoMenosVendido{
+	left: 188px;
+}
+
+#Promociones #ProductoMayorCosto{
+	left: 366px;
+}
+
+#Promociones #ProductoMenorCosto{
+	left: 544px;
+}
+
+#Promociones #Novedad{
+	right: 10px;
+}
+
+
+

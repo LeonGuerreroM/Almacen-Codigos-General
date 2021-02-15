@@ -1,0 +1,28 @@
+{% extends "Base.html" %}
+
+{% block title %}Balance negocio{% endblock %}
+
+{% block content %}
+    <h1>Estado General del Negocio</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+                    <td scope="col"><h4><strong>Inversión</strong></h4></td>
+                    <td scope="col"><h4><strong>Entrada de Caja</strong></h4></td>
+                    <td scope="col"><h4><strong>Balance</strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+            {% csrf_token %}
+                <tr>
+                    <td><h4>$ {{inversion}}</h4></td>
+                    <td><h4>$ {{ganancia}}</h4></td>
+                    <td><h4>$ {{balance}}</h4>
+                </tr>
+            <tbody>
+        </table>
+        <h2>{{ mensaje }}</h2>
+    </div>
+{% endblock %}

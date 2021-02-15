@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1507844671 source:c:\users\sala1\desktop\fibos\main.c
+	<stdio.h>
+	<stdlib.h>
+

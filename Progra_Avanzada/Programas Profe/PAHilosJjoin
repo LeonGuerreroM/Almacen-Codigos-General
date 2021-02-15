@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <sys/wait.h>
+
+void *funcionhilo(void *parametros);
+
+int main(){
+  pthread_t idHilo; //identificador hilo
+  pthread_Attr_t atributos; //Atributos para la creacion
+  int error; //error devuelto por la funcion crear thread
+  char *valorDevuelto = NULL; //Valor que va a devolver el hilo hijo
+
+  pthread_attr_init(&atributos);
+
+  pthread_attr_setdetachstate(&atributos,PTHREAD_CREATE_JOINABLE);
+
+  //Creamos el thread
+  error=pthread_create(&idHilo,&atributos,funcionhilo,NULL);
+  //verificamos si creo correctamente
+  if(error!=0){
+    perror("No se puede crear el hilo");
+    exit(-1);
+  }
+  //El hilo principal espera al hilo hijo, indicando cuando empieza la espera y cuando termina
+  printf("Padre: Espero al thread\n");
+  pthread_join(idHilo,(void**)&valorDevuelto);
+  printf("Padre: Ya ha terminado el hilo \n");
+
+  //Se imprime el valor devuelto
+  printf("Padre: devuelve \"%s \"\n",valorDevuelto);
+}
+
+  //Funcion que se ejecuta en el hilo hijo
+  void *funcionhilo(void *parametro){
+  //el hilo espera un segundo y sale, indicando cuando empieza a esperar y cuando se termina
+  printf("Hijo: Espero 1 segundo \n");
+  sleep(1);
+
+  //termina el thread devuelve una cadena
+  pthread_exit((void*)"Ya termino XD XP");
+}

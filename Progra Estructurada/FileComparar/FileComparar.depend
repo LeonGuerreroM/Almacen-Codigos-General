@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1511506224 source:c:\users\leonm\desktop\filecomparar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

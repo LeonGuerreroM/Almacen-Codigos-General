@@ -1,0 +1,41 @@
+{% extends "Base.html" %}
+
+{% block title %}Lista de Compras{% endblock %}
+
+{% block content %}
+    <h1>Lista de Compras</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+                    <td scope="col" ><h4><strong>ID</strong></h4></td>
+                    <td scope="col"><h4><strong>Nombre</strong></h4></td>
+                    <td scope="col"><h4><strong>Tipo</strong></h4></td>
+                    <td scope="col"><h4><strong>Marca</strong></h4></td>
+                    <td scope="col"><h4><strong>Clasificación</strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if iCompras %}
+                    {% for iCompras in compras %}
+                <tr>
+                    <td><h4>{{iCompras.id}}</h4></td>
+                    <td><h4>{{iCompras.nombre}}</h4></td>
+                    <td><h4>{{iCompras.tipo}}</h4></td>
+                    <td><h4>{{iCompras.marca}}</h4>
+                    {% if iCompras.LN == 1 %}
+                        <td><h4>Negro</h4>
+                    {% elif iCompras.APC == 1 %}
+                        <td><h4>Aclamado</h4>
+                    {% else %}
+                        <td><h4>Medio</h4>
+                    {% endif %}
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

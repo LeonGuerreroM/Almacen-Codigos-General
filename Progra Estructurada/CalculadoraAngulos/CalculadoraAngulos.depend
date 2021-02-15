@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503611955 source:e:\calculadoraangulos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<Math.h>
+

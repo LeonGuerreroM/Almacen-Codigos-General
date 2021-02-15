@@ -1,0 +1,31 @@
+{% extends "Base.html" %}
+
+{% block title %}Saldos Generales{% endblock %}
+
+{% block content %}
+    <h1>Saldos Generales</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+                    <td scope="col"><h4><strong>Nombre(s)</strong></h4></td>
+                    <td scope="col"><h4><strong>Apellido(s)</strong></h4></td>
+                    <td scope="col"><h4><strong>Saldo General</strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+                    <td><h4>{{condicion.nombre}}</h4></td>
+                    <td><h4>{{condicion.apellido}}</h4></td>
+                    <td><h4>{{condicion.cuenta}}</h4></td>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Insercion de Organizaciones{% endblock %}
+
+{% block content %}
+    <h1>Ingrese los datos de la organizacion</h1>
+    <form method="post" action="/altaOrganizacion/">
+            {% csrf_token %}
+            {{forma.as_p}}
+            <button type="submit" name="registrar">Registrar Organizacion</button>
+    </form>
+{% endblock %}

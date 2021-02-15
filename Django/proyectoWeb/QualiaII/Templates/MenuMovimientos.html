@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+           <title>Menú Movimientos</title>
+        <meta charset="utf-8"><!--metadato para caracteres especiales-->
+        <meta name="viewport " content="width=device-with,initial-scale=1,shrink-to-fit=no"> <!-- comenzar desde la escala 1-->
+        <meta http-equiv="x-ua-compatible" content="ie-edge"><!-- mayor compatibilidad con navegadores-->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}"><!--introduciendo hoja de estilo-->
+        <link rel="stylesheet" href="{% static 'estilos.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+{% if user.is_authenticated %}
+<body style="background-image:url({% static 'imagenes/fondoblanco.jpg' %})">
+
+    <div class="container-fluid">
+        <div class="row">
+               <div class="col-12 fixed-top" align="right">
+                   <a class="btn btn-dark btn-lg" href="javascript:window.history.back();" role="button">&laquo; Regresar</a>
+                    <a class="btn btn-dark btn-lg" href="/MenuPrincipal/" role="button">Menú Principal</a>
+                     <a class="btn btn-dark btn-lg" href="/logout/" role="button">Cerrar Sesión</a>
+
+               </div>
+           </div>
+        <header class="row justify-content-lg-center">
+                <H1  id="FuenteTitulo">-MOVIMIENTOS-</H1>
+            </header>
+
+        <div class="row align-items-end" align="end">
+            <div class="col-3">
+                <a href="/altaMovs/"><img src="{% static 'imagenes/flecha-hacia-arriba.png' %}"></a>
+            </div>
+            <div class="col-3" align="left">
+                <a href="/altaMovs/"><p class="fuente">Altas</p></a>
+            </div>
+            <div class="col3">
+                <a href="/consultaMovs/"><img src="{% static 'imagenes/veterinario.png' %}"></a>
+            </div>
+            <div class="col-3" align="left">
+                <a href="/consultaMovs/"><p class="fuente">Consultas</p></a>
+            </div>
+        </div>
+    </div>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script><!--lo que va a manejar javascript-->
+</body>
+{% else %}
+    <h2><p>No has iniciado sesion. Ingresa <a href="/login/">Aqui</a></p></h2>
+    {% endif %}
+
+
+</html>

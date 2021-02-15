@@ -1,0 +1,38 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity funcbool is
+    Port ( w : in  bit;
+           x : in  bit;
+           y : in  bit;
+           a : out  bit;
+           b : out  bit;
+           c : out  bit;
+           d : out  bit;
+           f : out  bit;
+           e : out  bit;
+           g : out  bit;
+           PR : out  bit;
+           PA : out  bit;
+			  n1 : out bit;
+			  n2 : out bit);
+end funcbool;
+
+architecture Behavioral of funcbool is
+begin
+	process(w,x,y)
+	begin 
+		n1<='1';
+		n2<='1';
+		a <= not((w or x or (not y)) and ((not w) or x or y));
+		b <= not(((not w) or x or (not y)) and ((not w) or (not x) or y));
+		c <= not(w or y or (not x));
+		d <= not((w or x or (not y)) and ((not w) or x or y) and ((not w) or(not x) or (not y)));
+		e <= not(((not w)and (not x) and (not y)) or ((not w)and (x) and (not y)) or ((w)and (x) and (not y)));
+		f <= not(((not w)and (not x) and (not y)) or ((w)and (not x) and (not y)) or ((w)and (not x) and (y)) or ((w)and (x) and (not y)));
+		PA <= not(((not w)and (x) and (not y)) or ((w)and (not x) and (not y)) or ((w)and (x) and (not y)));
+		PR <= not((w or x or y) and ((not w) or x or y) and ((not w) or (not x) or y ));
+		g<= not((w or x or y) and (w or (x) or (not y)));
+	end process;
+end Behavioral;
+

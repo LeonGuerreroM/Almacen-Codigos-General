@@ -1,0 +1,37 @@
+{% extends "Base.html" %}
+
+{% block title %}Consulta Movs{% endblock %}
+
+{% block content %}
+    <h1>Lista de Movimientos</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+
+                    <td scope="col"><h4><strong>Concepto</strong></h4></td>
+                    <td scope="col"><h4><strong>Cantidad</strong></h4></td>
+                    <td scope="col"><h4><strong>Tipo de Transacción</strong></h4></td>
+                    <td scope="col"><h4><strong>Cliente</strong></h4></td>
+                    <td scope="col"><h4><strong>Fecha</strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+
+                    <td><h4>{{condicion.concepto}}</h4></td>
+                    <td><h4>{{condicion.cantidad}}</h4></td>
+                    <td><h4>{{condicion.tipoTransaccion}}</h4></td>
+                    <td><h4>{{condicion.cliente}}</h4></td>
+                    <td><h4>{{condicion.fecha}}</h4></td>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

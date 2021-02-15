@@ -1,0 +1,35 @@
+{% extends "Base.html" %}
+
+{% block title %}Aclamados{% endblock %}
+
+{% block content %}
+    <h1>Aclamados por la Critica</h1>
+    <br><br>
+    <div class="row" align="center">
+        <table class = "table">
+            <thead class = "thead-dark">
+                <tr class="text-white bg-dark">
+                    <td scope="col" ><h4><strong>ID Producto</strong></h4></td>
+                    <td scope="col"><h4><strong>Nombre</strong></h4></td>
+                    <td scope="col"><h4><strong>Tipo</strong></h4></td>
+                    <td scope="col"><h4><strong>Marca</strong></h4></td>
+                    <td scope="col"><h4><strong>Ventas</strong></h4></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% if condicion %}
+                    {% for condicion in consulta %}
+                <tr>
+                    <td><h4>{{condicion.producto}}</h4></td>
+                    <td><h4>{{condicion.nombre}}</h4></td>
+                    <td><h4>{{condicion.tipo}}</h4>
+                    <td><h4>{{condicion.marca}}</h4>
+                    <td><h4>{{condicion.ventas}}</h4>
+                </tr>
+                    {% endfor %}
+                {% endif %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}

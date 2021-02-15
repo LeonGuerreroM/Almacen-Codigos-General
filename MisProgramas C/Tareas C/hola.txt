@@ -1,0 +1,6 @@
+Hola Mundo
+Este es un fichero de ejemplo
+Para la tarea de funciones de C
+y escribo varias lineas
+para usarlas bien
+Adios

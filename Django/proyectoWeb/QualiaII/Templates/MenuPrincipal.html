@@ -1,0 +1,74 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+           <title>Menú Principal</title>
+        <meta charset="utf-8"><!--metadato para caracteres especiales-->
+        <meta name="viewport " content="width=device-with,initial-scale=1,shrink-to-fit=no"> <!-- comenzar desde la escala 1-->
+        <meta http-equiv="x-ua-compatible" content="ie-edge"><!-- mayor compatibilidad con navegadores-->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"><!--introduciendo hoja de estilo-->
+        <link rel="stylesheet" href="{% static 'estilos.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+
+{% if user.is_authenticated %}
+<body style="background-image:url({% static 'imagenes/qualia.png' %});">
+        <div class="container-fluid">
+            <div class="row">
+               <div class="col-12 fixed-top" align="right">
+                     <a class="btn btn-dark btn-lg" href="/logout/" role="button">Cerrar Sesión</a>
+                     <a class="btn btn-dark btn-lg" href="#" role="button">Cambiar contraseña</a>
+               </div>
+           </div>
+         <title>Ingresa Vendedor a un cliente</title>
+         <header >
+             <H1 class="row justify-content-md-center" id="FuenteTitulo">-Bienvenido-</H1>
+             <H2  id="FuenteTitulo" align="right">Qualia -Negocios e Inversiones-</H2>
+         </header>
+       <div class="row align-items-center" align="center">
+           <div class="col-lg-3" align="right">
+               <a href="/MenuClientes/"><img src="{% static 'imagenes/equipo.png' %}"></a>
+           </div>
+           <div class="col-lg-3" align="left">
+               <p class="fuente"> <a href="/MenuClientes/">CLIENTES</a></p>
+           </div>
+           <div class="col-lg-3" align="right">
+              <a href="/MenuInversiones/"><img src="{% static 'imagenes/inversion.png' %}"></a>
+           </div>
+           <div class="col-lg-3" align="left">
+           <a href="/MenuInversiones/"><p class="fuente">INVERSIONES</p></a>
+           </div>
+       </div>
+       <br>
+       <br>
+       <div class="row align-items-center" align="center">
+           <div class="col-lg-3" align="right">
+               <a href="/MenuProductos/"><img src="{% static 'imagenes/producto%20(7).png' %}"></a>
+           </div>
+           <div class="col-lg-3" align="left">
+               <p class="fuente"><a href="/MenuProductos/">PRODUCTOS</a></p>
+           </div>
+           <div class="col-lg-3" align="right">
+               <a href="/MenuVentas/"><img src="{% static 'imagenes/sale-tag.png' %}"></a>
+           </div>
+           <div class="col-lg-3" align="left">
+               <a href="/MenuVentas/"><p class="fuente">VENTAS</p></a>
+           </div>
+       </div>
+       <br>
+    </div>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script><!--lo que va a manejar javascript-->
+</body>
+{% else %}
+    <h2><p>No has iniciado sesion. Ingresa <a href="/login/">Aqui</a></p></h2>
+    {% endif %}
+</html>

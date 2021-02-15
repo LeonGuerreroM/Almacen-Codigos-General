@@ -1,0 +1,151 @@
+@font-face{
+    font-family:"gatsby";
+    src:url(Fuentes/gatsby/GatsbyFLF.ttf);
+}
+@font-face{
+    font-family:"bilal";
+    src:url(Fuentes/bilal/Bilal.otf);
+}
+@font-face{
+    font-family:"kapsalon";
+    src:url(Fuentes/kapsalon-print/Kapsalon.otf);
+}
+@font-face{
+    font-family:"krazyhazy";
+    src:url(Fuentes/KrazyHazy.otf);
+}
+@font-face{
+    font-family:"nakadai";
+    src:url(Fuentes/Nakadai.ttf);
+}
+@font-face{
+    font-family:"nation";
+    src:url(Fuentes/nation.TTF);
+}
+.Cabecera{
+     color:white;
+    width: 1367px;
+    height: 250px;
+    border: none;
+   /background: url(imagenes/bannerprincipal.png);/
+
+}
+#Banner1{
+
+    border: none;
+    width: 1367px;
+    height: 250px;
+    font-family:"nakadai";
+    font-size: 10;
+}
+.fuente{
+    font-family:"nation";
+    font-size: 35px;
+}
+.H1{
+    margin-top:0px;
+    text-align:"center";
+}
+aside{
+    display: block;
+    background: skyblue;
+}
+/*.Container{
+    text-align: center;
+}*/
+
+.Izquierda{
+    float: left;
+    width: 50%;
+    margin:0;
+    text-align: center;
+
+
+}
+
+.Derecha{
+    float: right;
+    width: 50%;
+    margin: 0;
+    text-align: center;
+
+}
+.PanelIzqVendedor{
+    background: #1F9BCD;
+    width: auto
+    float: left;
+    text-align: center;
+}
+.InicioSesionVendedor{
+    column-rule: #1F9BCD;
+    width: 70%;
+    float: center;
+    text-align: center;
+}
+input[type=text]{
+    width: 25%;
+    background-color: white;
+    padding: 12px 20px;
+      margin: 8px 0;
+      font-size: 15px;
+}
+input[type=password]{
+    width: auto;
+    background-color: gainsboro;
+}
+.TextoVertical{
+    margin: 0;
+    text-align: center;
+    height: auto;
+    font-size: 75px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+}
+#Titulo{
+    color:black;
+    border: none;
+    font-family:"nation";
+    font-size: 120px;
+    background: url(imagenes/fondoazul.jpg);
+      margin=0;
+      padding=0;
+}
+#FuenteTitulo{
+    color:black;
+    border:none;
+    font-family: "nation";
+    text-align: center;
+    font-size: 100px;
+
+}
+#fondoadmin{
+    width: 1364px;
+    height: 608px;
+    background-image: url(imagenes/qualia.png);
+    background-size: contain;
+}
+#b{
+    width: 200px;
+    height:400px;
+}
+#test{
+    width: 1300px;
+    height: 500px;
+}
+.caja{
+     width: 1000px;
+    height: 700 px;
+   background-color: aqua;
+
+            }
+input {
+  font-size: 25px;
+}
+#ip1 {
+    border-radius: 18px;
+
+    padding: 20px;
+    width: 200px;
+    height: 15px;
+}

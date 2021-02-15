@@ -1,0 +1,42 @@
+#descripcionProductos{
+	width:100%;
+	position: relative;
+	top:0px; /*separacion de arriba*/
+}
+
+#nombreCategoria{
+	position:relative;
+	width:100%;
+	top: 0px;
+	height:40px;
+	border-bottom: #00BFFF solid 2px;
+	margin: 0px;
+	text-align: center;
+}
+
+.renglonProducto{
+	position:relative;
+	top:0px;
+	width:100%;
+	background-color: #FFFFFF;
+	height:200px;
+	border-bottom: #ffffff solid 1px;	
+}
+
+.renglonProducto .describeProducto{
+	/*margin-left: 20px;*/
+	width:100px;
+	height:75px;
+	position: absolute; /*es la aitoridad para que pueda hacer que la imagen se ajuste*/
+	top: 12px;
+	background-color: #2EFEF7;
+}
+
+.renglonProducto img{
+	width: 100%;
+	height: 100%;
+	
+}
+
+
+

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Surtido{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script type="text/javascript">
+window.onload = function () {
+    document.formita.surtido.focus();
+    document.formita.addEventListener('submit', validar);
+}
+
+function validar(evObject) {
+    evObject.preventDefault();
+    var telok = false;
+    var formulario = document.formita;
+
+    if(formulario.surtido.value>0){
+        telok = true;
+    }else{
+        alert('El surtido debe ser de al menos 1');
+    }
+
+    if (telok == true)
+        {formulario.submit();}
+}
+</script>
+
+    <h1>Surtido de Productos</h1>
+    <form method="post" class="form-group" name = "formita" action="/surtido/"> <!--A donde ira al accionar el boton-->
+            {% csrf_token %}
+            {{forma.as_p}}                             <!--La forma que recibe de la vista-->
+            <button type="submit" class="btn btn-dark">Confirmar Surtido</button>
+    </form>
+{% endblock %}

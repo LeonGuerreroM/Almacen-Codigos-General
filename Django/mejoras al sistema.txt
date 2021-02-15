@@ -1,0 +1,2 @@
+Lista de mejoras al sistema:
+-Dar fecha diferente a los movimientos y a las ventas (opcional en ambos casos)

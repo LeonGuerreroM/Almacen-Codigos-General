@@ -1,0 +1,120 @@
+#Gestion de Usuarios
+
+def altaUsuario(response):
+    try:
+        if response.method == "POST":
+            formulario = fAltaUsuario(response.POST) #Llama al formulario creado
+
+            if formulario.is_valid():
+                n = formulario.cleaned_data["username"]
+                p = formulario.cleaned_data["password"]
+
+                u = tblUsuario(username=n, password=p)
+                u.save()
+                return HttpResponseRedirect("/MenuUsuarios/")
+        else:
+            formulario = fAltaUsuario(response.POST)
+        return render(response, "AltaUsuario.html", {"forma": formulario}) #Manda esta vista al html
+    except:
+        return HttpResponseRedirect("/Error/")
+
+def cambioUsuario(response):
+    try:
+        if response.method == "POST":
+            formulario = fCambioUsuario(response.POST)
+
+            if formulario.is_valid():
+                ccc = formulario.cleaned_data["usuario"]
+                un=formulario.cleaned_data["username"]
+                pw=formulario.cleaned_data["password"]
+                us = tblUsuario.objects.get(username=ccc)
+                us.username=un
+                us.password=pw
+                us.save()
+                return HttpResponseRedirect("/MenuUsuarios/")
+        else:
+            formulario = fCambioUsuario(response.POST)
+        return render(response, "CambiosUsuarios.html", {"forma": formulario})
+    except:
+       return HttpResponseRedirect("/Error/")
+
+def bajaUsuario(response):
+    try:
+        if response.method == "POST":
+            formulario =fBajaUsuario(response.POST)
+
+            if formulario.is_valid():
+                ccc=formulario.cleaned_data["usuario"]
+                u=tblUsuario.objects.get(username=ccc)
+                u.delete()
+                return HttpResponseRedirect("/MenuUsuarios/")
+        else:
+            formulario =fBajaUsuario(response.POST)
+        return render(response, "BajaUsuarios.html", {"forma": formulario})
+    except:
+        return HttpResponseRedirect("/Error/")
+
+def consultaUsuario(response):
+    consulta = tblUsuario.objects.all()
+    return render(response, "ConsultaUsuario.html", {"consulta":consulta, "condicion":True})
+
+def log(response):
+    try:
+        if response.method == "POST":
+            formulario = flogin(response.POST) #Llama al formulario creado
+
+            if formulario.is_valid():
+                n = formulario.cleaned_data["username"]
+                p = formulario.cleaned_data["password"]
+
+                if tblUsuario.objects.filter(username=n, password=p).exists():
+                    u = tblUsuario.objects.get(username=n, password=p)
+                    if u.tipo == 1:
+                        return HttpResponseRedirect("/MenuUsuarios/")
+                    else:
+                        return HttpResponseRedirect("/MenuPrincipal/")
+                
+                
+                return HttpResponseRedirect("/MenuUsuarios/")
+        else:
+            formulario = flogin(response.POST)
+        return render(response, "AltaUsuario.html", {"forma": formulario}) #Manda esta vista al html
+    except:
+        return HttpResponseRedirect("/Error/")
+
+
+
+
+class fAltaUsuario(forms.Form):
+    username = forms.CharField(label="Nombre de Usuario", max_length=50)
+    password = forms.CharField(label="Contraseña", max_length=10)
+
+class fCambioUsuario(forms.Form):
+    usuario = forms.ModelChoiceField(label="Usuario a modificar", queryset=tblUsuario.objects.all())
+    username = forms.CharField(label="Nuevo nombre de Usuario", max_length=50)
+    password = forms.CharField(label="Nueva contraseña", max_length=10)
+
+class fBajaUsuario(forms.Form):
+    usuario = forms.ModelChoiceField(label="Nombre de Usuario", queryset=tblUsuario.objects.all())
+
+class flogin(forms.Form):
+    username = forms.CharField(label="Nombre de Usuario", max_length=50)
+    password = forms.CharField(label="Contraseña", max_length=10)
+
+
+
+
+
+ path("altaUsuarios/",altaUsuario),
+    path("cambioUsuarios/",cambioUsuario),
+    path("bajaUsuarios/",bajaUsuario),
+    path("consultaUsuarios/",consultaUsuario),
+    path("log/",log),
+
+class tblUsuario(models.Model):
+    username = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
+    tipo = models.IntegerField(default=2)
+
+    def __str__(self):
+        return self.username

@@ -1,0 +1,11 @@
+#EntradaDatos{
+	position:relative;
+	width:100%;
+	height: 450px;
+	background-color: #FFFFFF;
+}
+
+#EntradaDatos iframe{
+	width:100%;
+	height: 100%;
+}
